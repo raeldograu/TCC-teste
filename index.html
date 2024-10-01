@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        .voting-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .voting-option {
+            margin: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 150px; /* Define uma largura fixa para cada opção */
+        }
+        img {
+            height: 100px;
+            display: block;
+            margin: 0 auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        section {
+            margin: 20px;
+            padding: 10px;
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            background-color: #e8f5e9;
+        }
+        h2 {
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Votação</h1>
+
+<div class="voting-container">
+    <div class="voting-option">
+        <img src="cachorro.webp" alt="Imagem de um cachorro"><br>
+        <button onclick="vote(1)">Opção A</button>
+    </div>
+
+    <div class="voting-option">
+        <img src="hambur.png" alt="Imagem de um hambúrguer"><br>
+        <button onclick="vote(2)">Opção B</button>
+    </div>
+
+    <div class="voting-option">
+        <img src="esfirra.jpg" alt="Imagem de uma esfiha"><br>
+        <button onclick="vote(3)">Opção C</button>
+    </div>
+
+    <div class="voting-option">
+        <img src="crepe.jpg" alt="Imagem de um crepe"><br>
+        <button onclick="vote(4)">Opção D</button>
+    </div>
+
+    <div class="voting-option">
+        <img src="277814-original.jpg" alt="Imagem de uma sobremesa"><br>
+        <button onclick="vote(5)">Opção E</button>
+    </div>
+</div>
+
+<section id="s1"><h2>Resultados A:</h2><p>0 votos</p></section>
+<section id="s2"><h2>Resultados B:</h2><p>0 votos</p></section>
+<section id="s3"><h2>Resultados C:</h2><p>0 votos</p></section>
+<section id="s4"><h2>Resultados D:</h2><p>0 votos</p></section>
+<section id="s5"><h2>Resultados E:</h2><p>0 votos</p></section>
+
+<script>
+let votes = [0, 0, 0, 0, 0]; // Array to store vote counts
+
+function vote(option) {
+    votes[option - 1]++; // Increment the appropriate vote count
+    document.querySelector(`section#s${option}`).innerHTML = `<h2>Resultados ${String.fromCharCode(64 + option)}:</h2><p>${votes[option - 1]} votos</p>`;
+}
+</script>
+
+</body>
+</html>
